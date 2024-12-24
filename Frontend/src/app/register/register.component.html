@@ -1,0 +1,68 @@
+<div class="form-container">
+  <h2 class="form-header">Registration</h2>
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <div class="form-group" @fadeInOut>
+      <label for="username">Username</label>
+      <input 
+        type="text" 
+        [(ngModel)]="registrationForm.empName" 
+        id="username" 
+        name="username"
+        required
+        #username="ngModel"/>
+      <div class="form-error" *ngIf="username.invalid && (username.dirty || username.touched)">
+        Username is required
+      </div>
+    </div>
+    
+    <div class="form-group" @fadeInOut>
+      <label for="password">Password</label>
+      <input 
+        type="password" 
+        [(ngModel)]="registrationForm.empPassword" 
+        id="password" 
+        name="password"
+        required
+        #password="ngModel"/>
+      <div class="form-error" *ngIf="password.invalid && (password.dirty || password.touched)">
+        Password is required
+      </div>
+    </div>
+    
+    <div class="form-group" @fadeInOut>
+      <label for="email">Email</label>
+      <input 
+        type="email" 
+        [(ngModel)]="registrationForm.empEmail" 
+        id="email" 
+        name="email"
+        required
+        #email="ngModel"/>
+      <div class="form-error" *ngIf="email.invalid && (email.dirty || email.touched)">
+        Valid email is required
+      </div>
+    </div>
+    
+    <div class="form-group" @fadeInOut>
+      <label for="mobile">Mobile</label>
+      <input 
+        type="tel" 
+        [(ngModel)]="registrationForm.empPhone" 
+        id="mobile" 
+        name="mobile"
+        required
+        #mobile="ngModel"/>
+      <div class="form-error" *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+        Mobile number is required
+      </div>
+    </div>
+    
+    <button class="btn" type="submit" @bounce [disabled]="!registerForm.form.valid">
+      Register
+    </button>
+
+    <div class="alter-way" @fadeInOut>
+      <p>Already have an account? <a routerLink="/login">Login here</a></p>
+    </div>
+  </form>
+</div>

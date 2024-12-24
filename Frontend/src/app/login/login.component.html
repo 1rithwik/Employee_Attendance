@@ -1,0 +1,92 @@
+<div class="login-form-container">
+  <div class="form-container">
+    <form #loginForm="ngForm" (ngSubmit)="onFormSubmit()" autocomplete="false" class="form">
+      <h4 class="form-header">
+        Login
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      </h4>
+      <div class="control">
+        <label for="username">Username</label>
+        <input [(ngModel)]="loginData.empName" name="username" id="username" required type="text">
+        <div class="form-error" *ngIf="loginForm.touched && !loginForm.valid">
+          <div *ngIf="loginForm.errors && loginForm.errors['required']">
+            Username is required
+          </div>
+        </div>
+      </div>
+      <div class="control">
+        <label for="password">Password</label>
+        <input [(ngModel)]="loginData.empPassword" minlength="4" name="password" autocomplete="new-password" id="password" required type="password">
+        <div class="form-error" *ngIf="loginForm.touched && !loginForm.valid">
+          <div *ngIf="loginForm.errors && loginForm.errors['required']">
+            Password is required
+          </div>
+          <div *ngIf="loginForm.errors && loginForm.errors['minlength']">
+            Password must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="control">
+        <button [disabled]="loginForm.invalid" class="btn" type="submit">Login</button>
+        <p class="alter-way">
+          <a routerLink="/register">Create a new account</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- <div class="flex justify-content-center align-items-center min-h-screen">
+  <p-card header="Login" [style]="{ width: '400px' }">
+    <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="login.email"
+          class="w-full"
+          id="email"
+          name="email"
+          #email="ngModel"
+          required
+          pattern="[a-z0-9\._%\+\-]+@[a-z0-9\.\-]+\.[a-z]{2,}$"
+        />
+        @if(email.invalid && (email.dirty || email.touched)){
+        <small class="block p-error">
+          @if(email.hasError('required')) {
+          <span>Email is required</span>
+          } @else if(email.hasError('pattern')) {
+          <span>Email is invalid</span>
+          }
+        </small>
+        }
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <p-password
+          [(ngModel)]="login.password"
+          [feedback]="false"
+          [toggleMask]="true"
+          inputId="password"
+          name="password"
+          #password="ngModel"
+          inputStyleClass="w-full"
+          styleClass="w-full"
+          required
+        />
+        @if(password.invalid && (password.dirty || password.touched)) {
+        <small class="block p-error"> Password is required </small>
+        }
+      </div>
+      <p-button
+        label="SIGN IN"
+        styleClass="w-full"
+        [disabled]="loginForm.invalid"
+        type="submit"
+      ></p-button>
+      <div class="mt-2">
+        Not a member? <a routerLink="/register">Register</a>
+      </div>
+    </form>
+  </p-card>
+</div> -->

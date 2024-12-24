@@ -1,0 +1,59 @@
+
+   <div class="container">
+    <div class="left-panel">
+      <h3>Navigation</h3>
+      <button type="button" class="btn" (click)="showProfileDetails()">Profile</button>
+      <button type="button" class="btn" (click)="showHomeButton()">Home</button>
+    </div>
+    <div class="main-content">
+      <!-- Profile Details Section -->
+      <ng-container *ngIf="showDetails === 'profile'">
+        <div class="profile-details">
+          <h2>User Profile</h2>
+          <p>View and manage your personal details below:</p>
+          <p><strong>Employee ID:</strong> {{ profileDetails.employeeId }}</p>
+          <p><strong>Name:</strong> {{ profileDetails.empName }}</p>
+          <p><strong>Email:</strong> {{ profileDetails.empEmail }}</p>
+          <p><strong>Phone:</strong> {{ profileDetails.empPhone }}</p>
+          <p><strong>Last Login Time:</strong> {{ profileDetails.lastLoginTime | date: 'short' }}</p>
+          <p><strong>Login Status:</strong> {{ profileDetails.loginStatus }}</p>
+          <p><strong>Late Attend Count:</strong> {{ profileDetails.lateAttendCount }}</p>
+          <p><strong>Early Leave Count:</strong> {{ profileDetails.earlyLeaveCount }}</p>
+        </div>
+        <button class="btn edit-btn" (click)="editDetails()">Edit Details</button>
+
+  <div class="edit-form" *ngIf="isEditMode">
+    <h3>Edit Profile</h3>
+    <form>
+      <label for="empId">Employee ID:</label>
+      <input type="text" id="empId" [(ngModel)]="editForm.empId" name="empId" readonly/>
+
+      <label for="empPhone">Phone:</label>
+      <input type="text" id="empPhone" [(ngModel)]="editForm.empPhone" name="empPhone" />
+
+      <label for="empEmail">Email:</label>
+      <input type="email" id="empEmail" [(ngModel)]="editForm.empEmail" name="empEmail" />
+
+      <div class="form-actions">
+        <button type="button" class="btn save-btn" (click)="saveDetails()">Save</button>
+        <button type="button" class="btn cancel-btn" (click)="cancelEdit()">Cancel</button>
+      </div>
+    </form>
+  </div>
+      </ng-container>
+  
+      <!-- Home Section -->
+      <ng-container *ngIf="showDetails === 'home'">
+        <div class="home-content">
+          <h2>Work Status</h2>
+          <p>Manage your work session below:</p>
+          <button type="button" class="btn" *ngIf="isLoggedIn" (click)="signOut()">Sign Out From Work</button>
+          <button type="button" class="btn" *ngIf="!isLoggedIn" (click)="signIn()">Sign In To Work</button>
+          <div *ngIf="isLoggedIn" class="timer-info">
+            <p><strong>Time You Are in Work:</strong> {{ formatTimer() }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  

@@ -1,0 +1,49 @@
+
+<div class="employee-dashboard">
+    <h1>Employee Dashboard</h1>
+    <div class="filter-container">
+      <button
+        class="filter-button"
+        (click)="filterByStatus('all')"
+        [class.active]="filterStatus === 'all'"
+      >
+        All Employees
+      </button>
+      <button
+        class="filter-button"
+        (click)="filterByStatus('true')"
+        [class.active]="filterStatus === 'true'"
+      >
+        Logged In Employees
+      </button>
+      <button
+        class="filter-button"
+        (click)="filterByStatus('false')"
+        [class.active]="filterStatus === 'false'"
+      >
+        Logged Out Employees
+      </button>
+    </div>
+    <div class="employee-container">
+      <div class="employee-card" *ngFor="let employee of filteredEmployees; let i=index">
+        <div class="card-header">
+          <h2>{{ employee.empName }}</h2>
+          <p>{{ employee.role }}</p>
+        </div>
+        <div class="card-body">
+          <p><strong>Email:</strong> {{ employee.empEmail }}</p>
+          <p><strong>Phone:</strong> {{ employee.empPhone }}</p>
+          <p><strong>Last Login:</strong> {{ employee.lastLoginTime | date:'short' }}</p>
+          <p><strong>Login Status:</strong> {{ employee.loginStatus }}</p>
+        </div>
+        <div class="card-footer">
+          <p><strong>Late Attendance Count:</strong> {{ employee.lateAttendCount }}</p>
+          <p><strong>Early Leave Count:</strong> {{ employee.earlyLeaveCount }}</p>
+        </div>
+        <button class="delete-button" (click)="deleteEmployee(i)">
+            Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  
