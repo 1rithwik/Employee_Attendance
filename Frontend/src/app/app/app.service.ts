@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginForm, LoginResponse } from '../login/login.component';
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,12 @@ import { Observable } from 'rxjs';
 export class AppService {
   private apiUrl = 'http://localhost:8080'; // Backend URL
   public loginuser:any;
+  private token = localStorage.getItem('token');
+  private headers = new HttpHeaders({
+    'Authorization':`Bearer ${this.token}`,
+    'Content-Type': 'application/json',
+  });
+
 
   constructor(private http: HttpClient) { }
 
@@ -29,11 +36,17 @@ export class AppService {
   }
 
   signInToWork(user:any){
-    return this.http.put(`${this.apiUrl}/LogInToWork`, user, {responseType:'text'});
+    return this.http.put(`${this.apiUrl}/LogInToWork`, user, {
+      'headers':this.headers,
+      'responseType':'text'
+    });
   }
 
   signOutToWork(user: any) {
-    return this.http.put(`${this.apiUrl}/LogOutFromWork`, user, {responseType:'text'});
+    return this.http.put(`${this.apiUrl}/LogOutFromWork`, user, {
+      'headers':this.headers,
+      'responseType':'text'
+    });
   }
 
   getEmployees(){

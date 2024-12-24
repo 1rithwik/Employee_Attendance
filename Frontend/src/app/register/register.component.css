@@ -1,3 +1,9 @@
+h1 {
+  text-align: center;
+  color: hsl(199, 93%, 24%);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 h2 {
   text-align: center;
 }
@@ -151,7 +157,7 @@ input:focus {
   height: 2px;
   bottom: -2px;
   left: 0;
-  background: white;
+  background: rgb(0, 0, 0);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }

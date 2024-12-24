@@ -103,5 +103,13 @@
     .main-content {
       width: 100%;
     }
+
+    .logout-btn {
+      background-color: #dc3545;
+    }
+    
+    .logout-btn:hover {
+      background-color: #a71d2a;
+    }
   }
   

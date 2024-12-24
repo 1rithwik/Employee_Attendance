@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../app/app.service';
+import { Router } from '@angular/router';
 
 export interface FilterDetails{
   employeeId:Number;
@@ -34,7 +35,7 @@ export class HomeComponent {
     empEmail: ''
   };
 
-  constructor(private appservice: AppService){
+  constructor(private appservice: AppService, private router: Router) {
     //this.profileDetails = this.appservice.getLoginResponse();
     console.log(localStorage.getItem('lastLoginTime'));
     
@@ -119,6 +120,14 @@ export class HomeComponent {
           console.log(error);
         }
       )
+    }
+
+    logout() {
+      // Clear user data from local storage
+      localStorage.clear();
+  
+      // Navigate to the login page
+      this.router.navigate(['/login']);
     }
 
     startTimer() {

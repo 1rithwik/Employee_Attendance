@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -59,7 +60,7 @@ public class EmpController {
     }
 
     @PutMapping("/LogOutFromWork")
-    public ResponseEntity<?> signOut(@RequestBody Employee user) {
+    public ResponseEntity<?> signOut(@RequestHeader("Authorization") @RequestBody Employee user) {
         empService.signOutFromWork(user);
         return ResponseEntity.ok("Signed out");
     }

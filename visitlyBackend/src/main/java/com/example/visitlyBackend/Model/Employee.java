@@ -36,6 +36,8 @@ public class Employee {
     @PrePersist
     public void setLateAttendCountToZero() {
         this.lateAttendCount = 0;
+        this.earlyLeaveCount = 0;
+        this.loginStatus = "false";
     }
 
 }
