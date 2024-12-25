@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { LoginForm, LoginResponse } from '../login/login.component';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-  private apiUrl = 'http://localhost:8080'; // Backend URL
+  private apiUrl:String =environment.apiBackendUrl; //'http://localhost:8080'; // Backend URL
   public loginuser:any;
   private token = localStorage.getItem('token');
   private headers = new HttpHeaders({
@@ -36,17 +37,11 @@ export class AppService {
   }
 
   signInToWork(user:any){
-    return this.http.put(`${this.apiUrl}/LogInToWork`, user, {
-      'headers':this.headers,
-      'responseType':'text'
-    });
+    return this.http.put(`${this.apiUrl}/LogInToWork`, user, {'responseType':'text'});
   }
 
   signOutToWork(user: any) {
-    return this.http.put(`${this.apiUrl}/LogOutFromWork`, user, {
-      'headers':this.headers,
-      'responseType':'text'
-    });
+    return this.http.put(`${this.apiUrl}/LogOutFromWork`, user, {'responseType':'text'});
   }
 
   getEmployees(){

@@ -42,7 +42,7 @@ export class HomeComponent {
   }
 
   ngOnInit(){
-    this.loadUserDetails();
+      this.loadUserDetails();
   }
 
   loadUserDetails(){
@@ -91,11 +91,13 @@ export class HomeComponent {
     this.filterProfileDetails.empEmail=this.profileDetails.empEmail;
     this.filterProfileDetails.empName=this.profileDetails.empName;
     this.filterProfileDetails.employeeId=this.profileDetails.employeeId;
-    this.appservice.signInToWork(this.filterProfileDetails).subscribe( 
+    this.appservice.signInToWork(this.profileDetails).subscribe( 
       (response:any)=> {
           console.log('Signed in successfully');
           alert('You are into work');
           this.isLoggedIn=!this.isLoggedIn;
+          this.profileDetails.loginStatus="true";
+          localStorage.setItem('loginStatus', "true");
           this.startTimer();
       },
       (error: any) => {
@@ -109,11 +111,13 @@ export class HomeComponent {
       this.filterProfileDetails.empEmail=this.profileDetails.empEmail;
       this.filterProfileDetails.empName=this.profileDetails.empName;
       this.filterProfileDetails.employeeId=this.profileDetails.employeeId;
-      this.appservice.signOutToWork(this.filterProfileDetails).subscribe(
+      this.appservice.signOutToWork(this.profileDetails).subscribe(
         (response:any) =>{
           console.log(response);
           alert('You are out from work');
           this.isLoggedIn=!this.isLoggedIn;
+          this.profileDetails.loginStatus="false";
+          localStorage.setItem('loginStatus', "false");
           this.resetTimer();
         },
         (error:any) =>{

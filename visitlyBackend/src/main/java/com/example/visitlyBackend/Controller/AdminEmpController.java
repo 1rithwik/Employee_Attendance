@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.visitlyBackend.Service.EmpService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "http://localhost:4200")
 public class AdminEmpController {
 
     private EmpService empService;

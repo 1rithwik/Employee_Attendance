@@ -15,24 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.visitlyBackend.Model.Employee;
 import com.example.visitlyBackend.Service.EmpService;
-import com.example.visitlyBackend.Repository.EmpRepo;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "http://localhost:4200")
 public class EmpController {
 
     private EmpService empService;
-    private EmpRepo repo;
     HashMap<String, Employee> map = new HashMap<>();
 
     @Autowired
-    public EmpController(EmpService empService, EmpRepo repo) {
+    public EmpController(EmpService empService) {
         this.empService = empService;
-        this.repo = repo;
     }
 
     @PostMapping("/register")
