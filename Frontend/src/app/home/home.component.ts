@@ -72,6 +72,7 @@ export class HomeComponent {
     if (lastLoginTimeString) {
       const lastLoginTime = new Date(lastLoginTimeString);
       const currentTime = new Date();
+      localStorage.setItem('lastLoginTime',currentTime.toString());
       this.timer = Math.floor((currentTime.getTime() - lastLoginTime.getTime())/1000);
       this.startTimer();
       console.log(lastLoginTime,currentTime,this.timer);
