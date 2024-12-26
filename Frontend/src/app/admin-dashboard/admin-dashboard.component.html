@@ -23,6 +23,7 @@
       >
         Logged Out Employees
       </button>
+      <button class="filter-button" type="button" (click)="logout()" >LogOut</button>
     </div>
     <div class="employee-container">
       <div class="employee-card" *ngFor="let employee of filteredEmployees; let i=index">

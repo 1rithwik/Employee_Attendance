@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../app/app.service';
+import { Router } from '@angular/router';
 
 export interface employeesList {
   employeeId: number;
@@ -25,7 +26,7 @@ export class AdminDashboardComponent {
   filteredEmployees: employeesList[] = [];
   filterStatus: string = 'all';
 
-  constructor(private appservice:AppService){
+  constructor(private appservice:AppService, private router: Router) {
     this.loadEmployees();
   }
 
@@ -74,5 +75,13 @@ export class AdminDashboardComponent {
     } else {
       this.filteredEmployees = [...this.employees]; // Show all employees
     }
+  }
+
+  logout() {
+    // Clear user data from local storage
+    localStorage.clear();
+
+    // Navigate to the login page
+    this.router.navigate(['/login']);
   }
 }
