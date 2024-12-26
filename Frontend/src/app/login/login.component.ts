@@ -40,7 +40,6 @@ export class LoginComponent {
 
   constructor(private appService: AppService, private router: Router) { }
   onFormSubmit() {
-    console.log(this.loginData);
     this.appService.loginUser(this.loginData).subscribe(
       (response: any) => {
         
