@@ -1,7 +1,8 @@
 # Project Details
 
 ## Project Overview:
-The Visitly Application is a full-stack web project designed to streamline employees presence at work and there other details. It features a Spring Boot backend and an Angular frontend, providing a seamless user experience for both empployees and admin. The application is deployed using modern cloud platforms, ensuring scalability and reliability.
+The Visitly Application is a full-stack web project designed to streamline employees presence at work and there other details. It features a Spring Boot backend and an Angular frontend, providing a seamless user experience for both empployees and admin. The application is deployed using modern cloud platforms, ensuring scalability and reliability.</br>
+The appliaction can be used by employees. When the employee reaches his workplace he should sign-in into the application, and when leaving the workplace he should sign-out. The application will track the employee's presence and provide the data to the admin. The admin can view the employee's presence data and also can view the employee's details like how many days was the employee late to his work, how many days did he leave early, and other basic information.</br>
 
 ## System Requirements:
 ### Frontend: Angular 15+, animations, form handling, service integration, and token storage.</br>
@@ -18,7 +19,6 @@ Cloud Platform: Render/Netlify for deployment</br>
 Browser: Latest version of Chrome, Firefox, or Edge</br>
 
 ## System Architecture:
-The appliaction can be used by employees. When the employee reaches his workplace he should sign-in into the application, and when leaving the workplace he should sign-out. The application will track the employee's presence and provide the data to the admin. The admin can view the employee's presence data and also can view the employee's details like how many days was the employee late to his work, how many days did he leave early, and other basic information.</br>
 ### Frontend:
 #### Components
 app.component.ts:Main container for other components.</br>
@@ -54,6 +54,7 @@ The table has the following columns:
 ## Authentication and Authorization:
 ### JWT Authentication Flow:
 Frontend sends username and password to backend.</br>
+The password is encrypted and stored in database.</br>
 Backend verifies credentials and returns a JWT token.</br>
 Frontend stores the token, sending it with requests to access protected resources.
 
