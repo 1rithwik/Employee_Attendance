@@ -5,14 +5,16 @@ The Visitly Application is a full-stack web project designed to streamline emplo
 The appliaction can be used by employees. When the employee reaches his workplace he should sign-in into the application, and when leaving the workplace he should sign-out. The application will track the employee's presence and provide the data to the admin. The admin can view the employee's presence data and also can view the employee's details like how many days was the employee late to his work, how many days did he leave early, and other basic information.</br>
 
 ## System Requirements:
-### Frontend: Angular 15+, animations, form handling, service integration, and token storage.</br>
+### Frontend:
+Angular 15+, animations, form handling, service integration, and token storage.</br>
 ### Backend:
 Programming Language: Java 17</br>
 Framework: Spring Boot (version 3.4.1)</br>
 Server: Render cloud platform</br>
 Build Tool: Maven (version 3.9.9)</br>
 Java Runtime Environment: JRE 17</br>
-### Database: MySQL with tables for employee data</br>
+### Database:
+MySQL with tables for employee data</br>
 ### Deployment Environment
 Containerization: Docker (version 20.x or above)</br>
 Cloud Platform: Render/Netlify for deployment</br>
@@ -82,6 +84,9 @@ The application database is deployed on freesqldatabase cloud platform.</br>
 The application backend is deployed using Docker on render cloud platform.</br>
 The application frontend is deployed on Netlify cloud platform.</br>
 
+#### Few points regarding app:
+
+###### To go to admin Dashboard - credentials: username-Padmanvati,password:p@123
 ###### The first response you are giving to server may take some time, because the server might me be inactive, and it takes some time to get active and give response.
 ###### Sometimes the database cloud server runs very slow and sometimes it doesnot respond. So you face any errors while running the application , please try to restart the application and database server.
 ###### If you still face errors try using localhost database.
