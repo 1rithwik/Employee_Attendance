@@ -87,7 +87,7 @@ The application frontend is deployed on Netlify cloud platform.</br>
 #### Few points regarding app:
 
 ###### To go to admin Dashboard - credentials: username-Padmavati,password:p@123
-###### The first response you are giving to server may take some time atleast 90 secs, because the server might me be inactive, and it takes some time to get active and give response.
+###### The first response you are giving resquest to server, it may take some time atleast 90 secs, because the server might me be inactive, and it takes some time to get active and give response.
 ###### Sometimes the database cloud server runs very slow and sometimes it doesnot respond. So you face any errors while running the application , please try to restart the application and database server.
 ###### If you still face errors try using localhost database.
 ###### If still problem persists, please contact me. rokkamrithwik@gmail.com
